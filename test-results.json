@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-02-21T06:46:33.922Z",
+  "contractAddress": "0x1323f3CfE3c34165562a7B5CC16a867A4bBacA9d",
+  "network": "ADI Testnet",
+  "chainId": 99999,
+  "proposalsCreated": 3,
+  "proposalIds": [
+    "0xca7a920ba445d2c26a5dea00e094a6c10899dd0843628fb839aafa17ad333829",
+    "0xc5b889ba70672677d179fcabdd9ed031b8d339f1b19c75416744ef0943f0710e",
+    "0x6012815eb86cd34aa46a0e058374d23fd3e5989a22fd5aafd8a9024c84c41078"
+  ],
+  "totalFundingRequested": 26000,
+  "issueTypeDistribution": {
+    "Healthcare": 1,
+    "Environmental": 1,
+    "Education": 1
+  },
+  "severityDistribution": {
+    "Critical": 1,
+    "High": 1,
+    "Medium": 1
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "tars-dao",
+  "version": "1.0.0",
+  "description": "TARS DAO on ADI Testnet",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.ts --network adiTestnet",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "impact-agent": "ts-node src/run-impact-agent.ts",
+    "check-membership": "ts-node scripts/check-membership.ts"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/node": "^20.10.0",
+    "hardhat": "^2.19.0",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "@openzeppelin/contracts": "^5.0.1",
+    "axios": "^1.13.5",
+    "dotenv": "^17.3.1",
+    "form-data": "^4.0.5"
+  }
+}

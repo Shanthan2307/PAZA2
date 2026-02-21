@@ -1,0 +1,19 @@
+{
+  "network": "adiTestnet",
+  "chainId": 99999,
+  "deployedAt": "2026-02-21T09:53:54.801Z",
+  "deployer": "0x2B650F7565629b54fc476152e4aCbD9C1A4DEF9B",
+  "demoMode": true,
+  "config": {
+    "votingPeriod": 180,
+    "resolutionPeriod": 1200,
+    "votingPeriodMinutes": 3,
+    "resolutionPeriodMinutes": 20
+  },
+  "contracts": {
+    "PredictionMarketDAO": "0x46E327425032ceccba787A8f412e31266A2227E0",
+    "RepairTimelineMarket": "0x98448A786D7EAc26B8fE452AA9FEA21c54B7e846",
+    "RepairVerificationResolver": "0xFFB7ccb8130CD251aBFbF1570761a0DA58Fce6ed",
+    "DemoTarget": "0xAA42d4782B3DD2C0DB677c90283d495FFC368f94"
+  }
+}

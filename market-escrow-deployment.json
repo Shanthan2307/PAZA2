@@ -1,0 +1,14 @@
+{
+  "contractAddress": "0x1964E3c32F27D427a459a5Ac26Fe408cfD17D775",
+  "treasury": "0x2B650F7565629b54fc476152e4aCbD9C1A4DEF9B",
+  "deployer": "0x2B650F7565629b54fc476152e4aCbD9C1A4DEF9B",
+  "network": "adiTestnet",
+  "chainId": "99999",
+  "deployedAt": "2026-02-21T07:18:59.485Z",
+  "blockNumber": 41284,
+  "feeConfig": {
+    "launchFee": "0.01",
+    "tradingFeeBasisPoints": "30",
+    "resolutionFee": "0.001"
+  }
+}

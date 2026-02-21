@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "timestamp": "2025-02-07T23:27:43.000Z",
+    "location": {
+      "coordinates": {
+        "lat": 42.328405555555555,
+        "lng": -71.13365
+      },
+      "address": "Boylston Street",
+      "city": "Brookline",
+      "state": "Massachusetts",
+      "country": "United States"
+    },
+    "camera": {
+      "make": "Meta",
+      "model": "View Ray-Ban Meta Smart Glasses",
+      "resolution": "Unknown",
+      "settings": {
+        "aperture": 2.2,
+        "focalLength": 2.24,
+        "iso": 108,
+        "exposureTime": 0.0024,
+        "flash": "Flash did not fire, compulsory flash mode"
+      }
+    },
+    "hash": "0xd5269d12890377e512619698b5b69f358953edea383e2726e59ddc93b13c18fc"
+  },
+  "analysis": {
+    "description": "The image shows a frozen lake surrounded by a winter landscape. In the background, there are several large, ornate buildings with steeples and towers, suggesting a historic or residential area. The lake is covered in a layer of ice, and the shoreline is lined with bare trees. The sky is a clear, bright blue, indicating a sunny winter day.",
+    "objects": [
+      "The key objects present in the image are the frozen lake",
+      "the buildings in the background",
+      "and the bare trees along the shoreline."
+    ],
+    "landmarks": [
+      "The buildings in the background appear to be a historic or residential area",
+      "but no specific landmarks are clearly identifiable."
+    ],
+    "categories": [
+      "This image could be relevant for news stories related to winter landscapes",
+      "frozen lakes",
+      "historic architecture",
+      "or winter recreation."
+    ],
+    "tags": [
+      "The key objects present in the image are the frozen lake",
+      "the buildings in the background",
+      "and the bare trees along the shoreline.",
+      "The buildings in the background appear to be a historic or residential area",
+      "but no specific landmarks are clearly identifiable.",
+      "This image could be relevant for news stories related to winter landscapes",
+      "frozen lakes",
+      "historic architecture",
+      "or winter recreation."
+    ],
+    "confidence": 5
+  },
+  "context": {
+    "weather": {}
+  },
+  "verification": {
+    "isVerified": false,
+    "method": "Metadata Analysis",
+    "timestamp": "2026-02-20T17:38:13.802Z",
+    "verifier": "TARS Image Verification Service"
+  },
+  "impactAssessment": {
+    "score": 13,
+    "category": "This image could be relevant for news stories related to winter landscapes",
+    "urgency": "medium",
+    "estimatedImpact": "To be assessed by DAO members",
+    "recommendedActions": [
+      "Document current conditions",
+      "Engage local stakeholders",
+      "Create DAO proposal for resource allocation",
+      "Monitor progress and impact"
+    ],
+    "stakeholders": [
+      "Local community members",
+      "Environmental agencies",
+      "Local government",
+      "DAO members"
+    ]
+  }
+}
