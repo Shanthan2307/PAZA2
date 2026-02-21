@@ -1,12 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useAccount, useWalletClient } from 'wagmi';
+import { ethers } from 'ethers';
 
 interface CreateProposalFormProps {
   onSuccess?: () => void;
 }
 
 export default function CreateProposalForm({ onSuccess }: CreateProposalFormProps) {
+  const { address, isConnected } = useAccount();
+  const { data: walletClient } = useWalletClient();
   const [imageUrl, setImageUrl] = useState('');
   const [analysisUrl, setAnalysisUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,6 +39,10 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
     setLoading(true);
 
     try {
+      if (!isConnected || !walletClient) {
+        throw new Error('Please connect your wallet first');
+      }
+
       // Validate URLs
       const imageCID = extractCID(imageUrl);
       const analysisCID = extractCID(analysisUrl);
@@ -47,8 +55,8 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
         throw new Error('Invalid analysis Pinata URL. Please provide a valid IPFS link.');
       }
 
-      // Submit to API
-      const response = await fetch('/api/create-proposal', {
+      // Fetch and format proposal data from API
+      const response = await fetch('/api/prepare-proposal', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,26 +64,68 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
         body: JSON.stringify({
           imageCID,
           analysisCID,
-          imageUrl,
-          analysisUrl
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to create proposal');
+        throw new Error(data.error || 'Failed to prepare proposal');
       }
 
-      setSuccess(`✅ Proposal created successfully!\nProposal ID: ${data.proposalId}\nTransaction: ${data.txHash}`);
+      // Now create proposal using user's wallet
+      const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0x023d2018C73Fd4BE023cC998e59363A68cDF36eC';
+      const contractABI = [
+        "function createProposal(string calldata description) external returns (bytes32)"
+      ];
+
+      // Create ethers provider from wagmi wallet client
+      const provider = new ethers.BrowserProvider(walletClient as any);
+      const signer = await provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+      // Send transaction via MetaMask
+      const tx = await contract.createProposal(data.description);
+      setSuccess(`Transaction sent! Waiting for confirmation...\nTX: ${tx.hash}`);
+      
+      const receipt = await tx.wait();
+      
+      // Extract proposal ID from event
+      const event = receipt.logs.find((log: any) => {
+        try {
+          const parsed = contract.interface.parseLog(log);
+          return parsed?.name === 'ProposalCreated';
+        } catch {
+          return false;
+        }
+      });
+
+      let proposalId = 'Unknown';
+      if (event) {
+        const parsed = contract.interface.parseLog(event);
+        proposalId = parsed?.args?.[0] || 'Unknown';
+      }
+
+      setSuccess(`✅ Proposal created successfully!\nProposal ID: ${proposalId}\nTransaction: ${tx.hash}`);
       setImageUrl('');
       setAnalysisUrl('');
       
       if (onSuccess) {
-        onSuccess();
+        setTimeout(onSuccess, 3000);
       }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+    } catch (err: any) {
+      console.error('Error creating proposal:', err);
+      let errorMessage = 'An error occurred';
+      
+      if (err.message?.includes('user rejected')) {
+        errorMessage = 'Transaction rejected by user';
+      } else if (err.message?.includes('insufficient funds')) {
+        errorMessage = 'Insufficient funds for gas';
+      } else if (err.message) {
+        errorMessage = err.message;
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -87,6 +137,14 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
       <p className="text-gray-600 mb-6">
         Submit Pinata URLs for the image and analysis to create a DAO proposal automatically.
       </p>
+
+      {!isConnected && (
+        <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <p className="text-sm text-yellow-800">
+            ⚠️ Please connect your wallet to create proposals
+          </p>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Image URL Input */}
@@ -146,7 +204,7 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
         {/* Submit Button */}
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !isConnected}
           className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
         >
           {loading ? (
@@ -157,6 +215,8 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
               </svg>
               Creating Proposal...
             </span>
+          ) : !isConnected ? (
+            'Connect Wallet First'
           ) : (
             'Create Proposal'
           )}
@@ -167,10 +227,11 @@ export default function CreateProposalForm({ onSuccess }: CreateProposalFormProp
       <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="text-sm font-semibold text-blue-900 mb-2">How it works:</h3>
         <ol className="text-xs text-blue-800 space-y-1 list-decimal list-inside">
+          <li>Connect your wallet (MetaMask will be used to sign the transaction)</li>
           <li>Paste the Pinata URLs for your image and analysis JSON</li>
           <li>The system downloads and validates the analysis data</li>
-          <li>Impact agent processes the data and creates a formatted proposal</li>
-          <li>Proposal is submitted to the DAO smart contract</li>
+          <li>MetaMask will prompt you to confirm the transaction</li>
+          <li>After confirmation, your proposal will be created on-chain</li>
           <li>You'll receive the Proposal ID and transaction hash</li>
         </ol>
       </div>
