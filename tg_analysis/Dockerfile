@@ -14,8 +14,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install Node dependencies
-RUN npm ci --only=production
+# Install Node dependencies (including dev for tsx)
+RUN npm ci
 
 # Copy application code
 COPY . .
