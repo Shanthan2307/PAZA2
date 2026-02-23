@@ -2,12 +2,21 @@ import TelegramBot from 'node-telegram-bot-api';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
-import { elizaLogger } from '@elizaos/core';
+
 import { PhotoAnalyzer } from './analyze-photo';
 import { ImageAnalysisProvider, LocationProvider, WeatherProvider, NewsProvider } from './providers';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 
+
+// Simple logger replacement
+const elizaLogger = {
+  error: (...args: any[]) => console.error("[ERROR]", ...args),
+  warn: (...args: any[]) => console.warn("[WARN]", ...args),
+  info: (...args: any[]) => console.log("[INFO]", ...args),
+  debug: (...args: any[]) => console.log("[DEBUG]", ...args),
+  log: (...args: any[]) => console.log("[LOG]", ...args),
+};
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
