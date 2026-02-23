@@ -7,8 +7,6 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.36.3",
-    "@elizaos/adapter-sqlite": "0.1.9",
-    "@elizaos/core": "0.1.9",
     "axios": "^1.7.9",
     "better-sqlite3": "11.5.0",
     "dotenv": "^16.4.7",
@@ -17,7 +15,8 @@
     "form-data": "^4.0.1",
     "heic-convert": "^2.1.0",
     "node-telegram-bot-api": "^0.66.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "ws": "^8.19.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.1",
