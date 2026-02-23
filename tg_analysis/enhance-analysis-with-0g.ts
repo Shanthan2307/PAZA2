@@ -1,7 +1,9 @@
+import { elizaLogger } from './logger';
+
 import { promises as fs } from 'fs';
 import path from 'path';
 import { TaglineGenerator, ZGComputeConfig } from '../zero-gravity/compute/tagline-generator';
-import { elizaLogger } from '@elizaos/core';
+
 
 export interface EnhancedAnalysis {
   success: boolean;

@@ -1,4 +1,6 @@
-import { elizaLogger } from '@elizaos/core';
+import { elizaLogger } from './logger';
+
+
 import exifr from 'exifr';
 import path from 'path';
 import fs from 'fs/promises';

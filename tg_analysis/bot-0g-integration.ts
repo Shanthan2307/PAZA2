@@ -1,3 +1,5 @@
+import { elizaLogger } from './logger';
+
 /**
  * 0G Compute Integration for Telegram Bot
  * 
@@ -7,7 +9,7 @@
 
 import { AnalysisEnhancer } from './enhance-analysis-with-0g';
 import { ZGComputeConfig } from '../zero-gravity/compute/tagline-generator';
-import { elizaLogger } from '@elizaos/core';
+
 import axios from 'axios';
 
 export class Bot0GIntegration {

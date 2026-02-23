@@ -1,6 +1,8 @@
+import { elizaLogger } from './logger';
+
 import { Anthropic } from '@anthropic-ai/sdk';
 import axios from 'axios';
-import { elizaLogger } from '@elizaos/core';
+
 
 export class ImageAnalysisProvider {
   private client: Anthropic;
