@@ -7,13 +7,12 @@ RUN apk add --no-cache \
     ffmpeg \
     build-base \
     python3-dev \
+    py3-numpy \
+    opencv \
     py3-opencv
 
 # Create app directory
 WORKDIR /app
-
-# Install Python packages for video processing
-RUN pip3 install --no-cache-dir opencv-python-headless numpy --break-system-packages
 
 # Copy package files
 COPY package*.json ./
