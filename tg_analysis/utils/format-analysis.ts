@@ -1,4 +1,6 @@
-import { elizaLogger } from '@elizaos/core';
+import { elizaLogger } from '../logger';
+
+
 
 export interface FormattedAnalysis {
   metadata: {

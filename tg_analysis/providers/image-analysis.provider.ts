@@ -1,3 +1,5 @@
+import { elizaLogger } from '../logger';
+
 import { Provider, elizaLogger, IAgentRuntime, Memory, State } from '@elizaos/core';
 import Anthropic from '@anthropic-ai/sdk';
 import sharp from 'sharp';

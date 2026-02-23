@@ -1,3 +1,5 @@
+import { elizaLogger } from '../logger';
+
 import { Provider, IAgentRuntime, Memory } from '@elizaos/core';
 import exifr from 'exifr';
 

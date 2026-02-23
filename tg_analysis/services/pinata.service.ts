@@ -1,4 +1,6 @@
-import { elizaLogger } from '@elizaos/core';
+import { elizaLogger } from '../logger';
+
+
 import FormData from 'form-data';
 import axios from 'axios';
 import { FormattedAnalysis } from '../utils/format-analysis';

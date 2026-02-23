@@ -1,5 +1,7 @@
+import { elizaLogger } from '../logger';
+
 import { Provider, IAgentRuntime, Memory } from '@elizaos/core';
-import { elizaLogger } from '@elizaos/core';
+
 
 interface LocationDetails {
   address: string;
