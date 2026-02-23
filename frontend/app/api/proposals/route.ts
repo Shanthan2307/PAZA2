@@ -8,7 +8,7 @@ export async function GET() {
     const pmFilePath = path.join(process.cwd(), '..', 'processed-files-pm.json');
     const oldFilePath = path.join(process.cwd(), '..', 'processed-files.json');
     
-    let proposals = [];
+    let proposals: any[] = [];
     
     // Load from PredictionMarketDAO file
     if (fs.existsSync(pmFilePath)) {

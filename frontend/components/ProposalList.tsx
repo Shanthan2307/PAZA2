@@ -77,7 +77,7 @@ export default function ProposalList() {
       
       // Extract proposal IDs from events
       const proposalIds = events.map(event => ({
-        proposalId: event.args?.[0] as string,
+        proposalId: (event as any).args?.[0] as string,
         ipfsCID: undefined // We'll get this from the contract
       }));
       
