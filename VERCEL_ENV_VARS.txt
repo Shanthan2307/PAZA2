@@ -1,0 +1,53 @@
+╔══════════════════════════════════════════════════════════════════╗
+║          VERCEL ENVIRONMENT VARIABLES                            ║
+║          Copy these EXACTLY into Vercel                          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Add these 3 variables in Vercel's Environment Variables section:
+
+┌──────────────────────────────────────────────────────────────────┐
+│ VARIABLE 1                                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ Name:  NEXT_PUBLIC_CONTRACT_ADDRESS                             │
+│ Value: 0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB               │
+└──────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────┐
+│ VARIABLE 2                                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ Name:  NEXT_PUBLIC_DAO_CHAIN_RPC_URL                            │
+│ Value: https://rpc.ab.testnet.adifoundation.ai/                 │
+└──────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────┐
+│ VARIABLE 3                                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ Name:  NEXT_PUBLIC_CHAIN_ID                                     │
+│ Value: 99999                                                     │
+└──────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════╗
+║                    IMPORTANT NOTES                               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ Add ALL 3 variables
+✅ Copy values EXACTLY (no extra spaces)
+✅ Variable names are case-sensitive
+✅ These are safe to expose (they're public blockchain info)
+
+❌ DO NOT add bot secrets here (TELEGRAM_BOT_TOKEN, etc.)
+❌ DO NOT add private keys here
+
+╔══════════════════════════════════════════════════════════════════╗
+║                    QUICK CHECKLIST                               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Before deploying:
+□ Root Directory set to: doa_adi/frontend
+□ Framework detected as: Next.js
+□ Variable 1 added: NEXT_PUBLIC_CONTRACT_ADDRESS
+□ Variable 2 added: NEXT_PUBLIC_DAO_CHAIN_RPC_URL
+□ Variable 3 added: NEXT_PUBLIC_CHAIN_ID
+□ All values copied exactly
+
+Ready to click Deploy!

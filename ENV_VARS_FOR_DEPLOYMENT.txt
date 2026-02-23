@@ -1,0 +1,104 @@
+╔══════════════════════════════════════════════════════════════════╗
+║          ENVIRONMENT VARIABLES FOR DEPLOYMENT                    ║
+║          Copy-paste these exactly into Railway and Vercel        ║
+╚══════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────┐
+│ FOR RAILWAY (Telegram Bot) - 13 Variables                       │
+│ Copy each line below into Railway's environment variables       │
+└──────────────────────────────────────────────────────────────────┘
+
+Variable Name: TELEGRAM_BOT_TOKEN
+Value: your-telegram-bot-token
+
+Variable Name: CREATE_PROPOSAL_PRIVATE_KEY
+Value: your-private-key-here
+
+Variable Name: DAO_CONTRACT_ADDRESS
+Value: 0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB
+
+Variable Name: DAO_CHAIN_RPC_URL
+Value: https://rpc.ab.testnet.adifoundation.ai/
+
+Variable Name: DAO_CHAIN_ID
+Value: 99999
+
+Variable Name: ANTHROPIC_API_KEY
+Value: sk-ant-api03-your-key-here
+
+Variable Name: ANTHROPIC_MODEL
+Value: claude-3-haiku-20240307
+
+Variable Name: PINATA_JWT
+Value: your-pinata-jwt-token
+
+Variable Name: PINATA_API_KEY
+Value: your-pinata-api-key
+
+Variable Name: PINATA_API_SECRET
+Value: your-pinata-api-secret
+
+Variable Name: ZG_COMPUTE_RPC_URL
+Value: https://evmrpc-testnet.0g.ai
+
+Variable Name: ZG_COMPUTE_MODEL
+Value: qwen-2.5-7b-instruct
+
+Variable Name: PRIVATE_KEY
+Value: 6b4e7ce3cd9854d4f56cccf59393719ff49ced65ea85ffd074efb2215a7e512e
+
+┌──────────────────────────────────────────────────────────────────┐
+│ FOR VERCEL (Website) - 3 Variables                              │
+│ Copy each line below into Vercel's environment variables        │
+└──────────────────────────────────────────────────────────────────┘
+
+Variable Name: NEXT_PUBLIC_CONTRACT_ADDRESS
+Value: 0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB
+
+Variable Name: NEXT_PUBLIC_DAO_CHAIN_RPC_URL
+Value: https://rpc.ab.testnet.adifoundation.ai/
+
+Variable Name: NEXT_PUBLIC_CHAIN_ID
+Value: 99999
+
+╔══════════════════════════════════════════════════════════════════╗
+║                         IMPORTANT NOTES                          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ Railway: Add ALL 13 variables
+✅ Vercel: Add ONLY 3 variables (NEXT_PUBLIC_* ones)
+
+⚠️  DO NOT mix them up!
+⚠️  DO NOT add bot secrets to Vercel
+⚠️  DO NOT skip any Railway variables
+
+✅ Contract address is the SAME in both: 
+   0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB
+
+✅ This ensures bot and website talk to the same contract
+
+╔══════════════════════════════════════════════════════════════════╗
+║                    DEPLOYMENT CHECKLIST                          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Railway (Bot):
+□ Set root directory: doa_adi/tg_analysis
+□ Add all 13 environment variables above
+□ Deploy
+□ Check logs for "✅ Paze Telegram Bot is running!"
+
+Vercel (Website):
+□ Set root directory: doa_adi/frontend
+□ Add all 3 environment variables above
+□ Deploy
+□ Visit URL and check it loads
+
+Test:
+□ Send /start to @Paze2026Bot
+□ Send video to bot
+□ Check proposal appears on website
+□ Try voting (connect wallet)
+
+╔══════════════════════════════════════════════════════════════════╗
+║                         YOU'RE READY!                            ║
+╚══════════════════════════════════════════════════════════════════╝

@@ -230,7 +230,7 @@ cd frontend && npm run dev
 ```bash
 # 1. Get API key from https://console.anthropic.com/
 # 2. Add to .env:
-ANTHROPIC_API_KEY=sk-ant-api03-your-actual-key-here
+ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
 
 # 3. Test it:
 npx ts-node scripts/test-claude-enhancement.ts

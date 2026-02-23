@@ -15,7 +15,7 @@ export interface ZGComputeConfig {
   model?: string;
 }
 
-export class TaglineGenerator {
+class TaglineGenerator {
   private wallet: ethers.Wallet;
   private provider: ethers.JsonRpcProvider;
   private model: string;
@@ -113,72 +113,6 @@ export class TaglineGenerator {
   }
 
   /**
-   * Extract relevant context from analysis data
-   */
-  private extractContext(analysisData: any): any {
-    return {
-      description: analysisData.analysis?.description || '',
-      location: [
-        analysisData.metadata?.location?.city,
-        analysisData.metadata?.location?.state,
-        analysisData.metadata?.location?.country
-      ].filter(Boolean).join(', '),
-      category: analysisData.impactAssessment?.category || '',
-      urgency: analysisData.impactAssessment?.urgency || '',
-      impactScore: analysisData.impactAssessment?.score || 0,
-      confidence: analysisData.analysis?.confidence || 0
-    };
-  }
-
-  /**
-   * Create prompt for AI model
-   */
-  private createPrompt(context: any): string {
-    return `Based on the following infrastructure issue analysis, generate a short, impactful tagline (max 15 words) that captures the essence of the problem:
-
-Location: ${context.location}
-Issue: ${context.description}
-Category: ${context.category}
-Urgency: ${context.urgency}
-Impact Score: ${context.impactScore}/100
-
-Generate only the tagline, nothing else. Make it concise and action-oriented.`;
-  }
-
-  /**
-   * Extract tagline from model response
-   */
-  private extractTagline(result: any): string {
-    // Handle different response formats
-    if (typeof result === 'string') {
-      return result.trim();
-    }
-    
-    if (result.text) {
-      return result.text.trim();
-    }
-    
-    if (result.output) {
-      return result.output.trim();
-    }
-    
-    if (result.generated_text) {
-      return result.generated_text.trim();
-    }
-
-    return JSON.stringify(result).substring(0, 100);
-  }
-
-  /**
-   * Generate unique task ID
-   */
-  private generateTaskId(): string {
-    return `tagline-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
-  }
-}
-
-
-  /**
    * Generate fallback tagline when 0G Compute is unavailable
    */
   private generateFallbackTagline(analysisData: any): string {
@@ -255,3 +189,6 @@ Generate only the tagline, nothing else. Make it concise and action-oriented.`;
     return JSON.stringify(result).substring(0, 100);
   }
 }
+
+export { TaglineGenerator };
+export default TaglineGenerator;

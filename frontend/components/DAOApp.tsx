@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import JoinDAO from './JoinDAO';
-import ProposalList from './ProposalList';
+import ProposalListSimple from './ProposalListSimple';
 import PredictionMarketsList from './PredictionMarketsList';
 import CreateProposalForm from './CreateProposalForm';
+import { initDemoMarkets } from '../lib/initDemoMarkets';
 
 export default function DAOApp() {
   const [mounted, setMounted] = useState(false);
@@ -18,6 +19,8 @@ export default function DAOApp() {
 
   useEffect(() => {
     setMounted(true);
+    // Initialize demo prediction markets
+    initDemoMarkets();
   }, []);
 
   const handleWaitlistSubmit = (e: React.FormEvent) => {
@@ -294,7 +297,7 @@ export default function DAOApp() {
                 <JoinDAO />
               </div>
 
-              <ProposalList />
+              <ProposalListSimple />
             </div>
           )}
 

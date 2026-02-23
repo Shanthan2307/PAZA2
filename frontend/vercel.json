@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_CONTRACT_ADDRESS": "0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB",
+    "NEXT_PUBLIC_DAO_CHAIN_RPC_URL": "https://rpc.ab.testnet.adifoundation.ai/",
+    "NEXT_PUBLIC_CHAIN_ID": "99999"
+  }
+}

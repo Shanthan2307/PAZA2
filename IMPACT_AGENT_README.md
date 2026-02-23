@@ -33,7 +33,7 @@ Your `.env` file is already configured with:
 # DAO Configuration
 DAO_CHAIN_RPC_URL=https://rpc.ab.testnet.adifoundation.ai/
 DAO_CHAIN_ID=99999
-CREATE_PROPOSAL_PRIVATE_KEY=6b4e7ce3cd9854d4f56cccf59393719ff49ced65ea85ffd074efb2215a7e512e
+CREATE_PROPOSAL_PRIVATE_KEY=your-private-key-here
 DAO_CONTRACT_ADDRESS=0x41791E1A83dFd0Eda28cC2A91FcB3AfB4722ffC4
 ```
 

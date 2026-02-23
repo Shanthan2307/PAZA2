@@ -21,7 +21,7 @@ Add ADI Testnet to MetaMask:
 
 Import the private key into MetaMask:
 ```
-6b4e7ce3cd9854d4f56cccf59393719ff49ced65ea85ffd074efb2215a7e512e
+your-private-key-here
 ```
 
 This account has **20 ADI** and is ready to use!

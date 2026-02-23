@@ -1,0 +1,31 @@
+FROM node:20-alpine
+
+# Install Python, pip, and ffmpeg for video processing
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    ffmpeg \
+    build-base \
+    python3-dev
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install Node dependencies
+RUN npm ci --only=production
+
+# Copy application code
+COPY . .
+
+# Create temp directory for video processing
+RUN mkdir -p temp/telegram-videos
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD node -e "console.log('healthy')" || exit 1
+
+# Start the bot
+CMD ["npm", "start"]

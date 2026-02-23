@@ -37,7 +37,7 @@ You have two options:
 1. Click MetaMask menu (three dots)
 2. Select "Account Details" → "Import Account"
 3. Select "Private Key"
-4. Paste: `6b4e7ce3cd9854d4f56cccf59393719ff49ced65ea85ffd074efb2215a7e512e`
+4. Paste: `your-private-key-here`
 5. Click "Import"
 
 Your imported account address: `0x2B650F7565629b54fc476152e4aCbD9C1A4DEF9B`

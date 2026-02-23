@@ -401,7 +401,7 @@ export class PazeTelegramBot {
       // Call the impact agent to create proposal
       const { ethers } = await import('ethers');
       
-      const contractAddress = '0x033480cD0519B7e5b2AAcd64F7B5C018FbeEC20A';
+      const contractAddress = '0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB';
       const contractABI = [
         "function createProposal(string calldata description) external returns (bytes32)",
         "event ProposalCreated(bytes32 indexed proposalId, string description, uint256 deadline)",

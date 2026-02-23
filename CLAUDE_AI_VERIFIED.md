@@ -103,7 +103,7 @@ Claude AI is now successfully enhancing proposal metadata! The system can automa
 ### API Key Setup
 ```bash
 # .env file
-ANTHROPIC_API_KEY=sk-ant-api03-...
+ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
 ```
 
 ### Model Used

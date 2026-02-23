@@ -1,6 +1,6 @@
-export const CONTRACT_ADDRESS = (process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0x033480cD0519B7e5b2AAcd64F7B5C018FbeEC20A') as `0x${string}`;
+export const CONTRACT_ADDRESS = (process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0x21C986a1C0e8658D9C5efe4bFcd9A120e49bedaB') as `0x${string}`;
 
-// PredictionMarketDAO ABI - Updated for new contract
+// SimpleDAO ABI - Updated for deployed contract
 export const CONTRACT_ABI = [
   {
     inputs: [],
@@ -84,7 +84,35 @@ export const CONTRACT_ABI = [
     stateMutability: 'nonpayable',
     type: 'function',
   },
-  // New PredictionMarketDAO functions
+  // SimpleDAO view functions
+  {
+    inputs: [{ internalType: 'bytes32', name: 'proposalId', type: 'bytes32' }],
+    name: 'getProposal',
+    outputs: [
+      { internalType: 'string', name: 'description', type: 'string' },
+      { internalType: 'uint256', name: 'forVotes', type: 'uint256' },
+      { internalType: 'uint256', name: 'againstVotes', type: 'uint256' },
+      { internalType: 'uint256', name: 'deadline', type: 'uint256' },
+      { internalType: 'bool', name: 'executed', type: 'bool' },
+      { internalType: 'bool', name: 'exists', type: 'bool' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
+    name: 'proposals',
+    outputs: [
+      { internalType: 'string', name: 'description', type: 'string' },
+      { internalType: 'uint256', name: 'forVotes', type: 'uint256' },
+      { internalType: 'uint256', name: 'againstVotes', type: 'uint256' },
+      { internalType: 'uint256', name: 'deadline', type: 'uint256' },
+      { internalType: 'bool', name: 'executed', type: 'bool' },
+      { internalType: 'bool', name: 'exists', type: 'bool' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
   {
     inputs: [{ internalType: 'bytes32', name: 'proposalId', type: 'bytes32' }],
     name: 'getProposalDetails',
